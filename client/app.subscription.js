@@ -1,6 +1,6 @@
 Deps.autorun(function(){
   Meteor.subscribe ('statistics');
-  Meteor.subscribe ('posts');
+  Meteor.subscribe ('funds');
 });
 
 
