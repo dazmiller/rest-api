@@ -9,53 +9,53 @@
 
 // api:      http://localhost:3000/api/find/posts
 // example:  http://localhost:3000/api/find/posts
-Router.route('/api/find/posts', function(){
+Router.route('/api/find/funds', function(){
   this.response.statusCode = 200;
   this.response.setHeader("Content-Type", "application/json");
   this.response.setHeader("Access-Control-Allow-Origin", "*");
   this.response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  this.response.end('Found some posts...  ' + JSON.stringify(
-    Posts.find().fetch()
+  this.response.end('Found some funds...  ' + JSON.stringify(
+    Funds.find().fetch()
   ));
 }, {where: 'server'});
 
 
 // api:      http://localhost:3000/api/insert/post
 // example:  http://localhost:3000/api/insert/post
-Router.route('/api/insert/post', function(){
+Router.route('/api/insert/fund', function(){
   this.response.statusCode = 200;
   this.response.setHeader("Content-Type", "application/json");
   this.response.setHeader("Access-Control-Allow-Origin", "*");
   this.response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  this.response.end('New post has an ID of ' + JSON.stringify(
-    Posts.insert(this.request.body)
+  this.response.end('New fund has an ID of ' + JSON.stringify(
+    Funds.insert(this.request.body)
   ));
 }, {where: 'server'});
 
 
-// api:      http://localhost:3000/api/find/post/:postId
-// example:  http://localhost:3000/api/find/post/314159
-Router.route('/posts/:postId', function(){
+// api:      http://localhost:3000/api/find/fund/:fundId
+// example:  http://localhost:3000/api/find/fund/314159
+Router.route('/funds/:fundId', function(){
   this.response.statusCode = 200;
   this.response.setHeader("Content-Type", "application/json");
   this.response.setHeader("Access-Control-Allow-Origin", "*");
   this.response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  this.response.end('Post contents... ' + JSON.stringify(
-    Posts.findOne({_id: new Meteor.Collection.ObjectID(this.params.postId) })
+  this.response.end('Fund contents... ' + JSON.stringify(
+    Funds.findOne({_id: new Meteor.Collection.ObjectID(this.params.postId) })
   ));
 }, {where: 'server'});
 
 
 
-// api:      http://localhost:3000/api/update/post/:postId
-// example:  http://localhost:3000/api/update/post/314159
-Router.route('/api/update/post/:postId', function(){
+// api:      http://localhost:3000/api/update/fund/:fundId
+// example:  http://localhost:3000/api/update/fund/314159
+Router.route('/api/update/fund/:fundId', function(){
   this.response.statusCode = 200;
   this.response.setHeader("Content-Type", "application/json");
   this.response.setHeader("Access-Control-Allow-Origin", "*");
   this.response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  this.response.end('Result of updating post is ' + JSON.stringify(
-    Posts.update({_id: new Meteor.Collection.ObjectID(this.params.postId) },{$set:{
+  this.response.end('Result of updating fund is ' + JSON.stringify(
+    Funds.update({_id: new Meteor.Collection.ObjectID(this.params.postId) },{$set:{
       title: this.request.body.title,
       text: this.request.body.text
     }})
@@ -63,14 +63,14 @@ Router.route('/api/update/post/:postId', function(){
 }, {where: 'server'});
 
 
-// api:      http://localhost:3000/api/delete/post/:postId
-// example:  http://localhost:3000/api/delete/post/314159
-Router.route('/api/delete/post/:postId', function(){
+// api:      http://localhost:3000/api/delete/fund/:fundId
+// example:  http://localhost:3000/api/delete/fund/314159
+Router.route('/api/delete/fund/:fundId', function(){
   this.response.statusCode = 200;
   this.response.setHeader("Content-Type", "application/json");
   this.response.setHeader("Access-Control-Allow-Origin", "*");
   this.response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  this.response.end('Result of deleting post is ' + JSON.stringify(
-    Posts.remove({_id: new Meteor.Collection.ObjectID(this.params.postId) })
+  this.response.end('Result of deleting fund is ' + JSON.stringify(
+    Funds.remove({_id: new Meteor.Collection.ObjectID(this.params.postId) })
   ));
 }, {where: 'server'});
