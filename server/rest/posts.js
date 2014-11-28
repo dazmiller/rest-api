@@ -9,7 +9,7 @@
 
 
 
-Router.route('/posts', function(){
+Router.route('/funds', function(){
   // console.log('################################################');
   // console.log(this.request.method);
   // console.log(this.request.headers);
@@ -30,7 +30,7 @@ Router.route('/posts', function(){
       list_count: 1
     }});
     this.response.end(JSON.stringify(
-      Posts.find().fetch()
+      Funds.find().fetch()
     ));
   }else if (this.request.method == 'POST') {
     Statistics.update({_id: "configuration"},{$inc:{
@@ -38,7 +38,7 @@ Router.route('/posts', function(){
       insert_count: 1
     }});
     this.response.end(JSON.stringify(
-      Posts.insert(this.request.body)
+      Funds.insert(this.request.body)
     ));
   }else if (this.request.method == 'OPTIONS') {
     this.response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, DELETE, OPTIONS");
@@ -47,7 +47,7 @@ Router.route('/posts', function(){
 }, {where: 'server'});
 
 
-Router.route('/posts/:postId', function(){
+Router.route('/funds/:fundId', function(){
   // console.log('################################################');
   // console.log(this.request.method);
   // console.log(this.request.headers);
@@ -72,7 +72,7 @@ Router.route('/posts/:postId', function(){
       get_count: 1
     }});
     this.response.end(JSON.stringify(
-      Posts.findOne({_id: new Meteor.Collection.ObjectID(this.params.postId) })
+      Funds.findOne({_id: new Meteor.Collection.ObjectID(this.params.postId) })
     ));
   }else if (this.request.method == 'PUT') {
     Statistics.update({_id: "configuration"},{$inc:{
@@ -80,7 +80,7 @@ Router.route('/posts/:postId', function(){
       update_count: 1
     }});
     this.response.end(JSON.stringify(
-      Posts.update({_id: new Meteor.Collection.ObjectID(this.params.postId) },{$set:{
+      Funds.update({_id: new Meteor.Collection.ObjectID(this.params.postId) },{$set:{
         title: this.request.body.title,
         text: this.request.body.text
       }})
@@ -92,7 +92,7 @@ Router.route('/posts/:postId', function(){
       delete_count: 1
     }});
     this.response.end(JSON.stringify(
-      Posts.remove({_id: new Meteor.Collection.ObjectID(this.params.postId) })
+      Funds.remove({_id: new Meteor.Collection.ObjectID(this.params.postId) })
     ));
   }else if (this.request.method == 'OPTIONS') {
     this.response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, DELETE, OPTIONS");
