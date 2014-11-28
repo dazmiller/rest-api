@@ -3,8 +3,8 @@
 
 Meteor.startup(function(){
 
-  Meteor.publish("posts", function () {
-    return Posts.find();
+  Meteor.publish("funds", function () {
+    return Funds.find();
   });
   Meteor.publish("statistics", function () {
     try{
@@ -37,16 +37,16 @@ Meteor.startup(function(){
     })
   };
 
-  if((Posts.find().count() == 0)) {
-    Posts.insert({
+  if((Funds.find().count() == 0)) {
+    Funds.insert({
       title: "Red",
       text: "Lorem ipsum..."
     });
-    Posts.insert({
+    Funds.insert({
       title: "Blue",
       text: "dolar set et..."
     });
-    Posts.insert({
+    Funds.insert({
       title: "Green",
       text: "iple fessle prax."
     });
