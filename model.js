@@ -13,8 +13,8 @@ Statistics.allow({
 });
 
 
-Posts = new Meteor.Collection("posts", {idGeneration : 'MONGO'});
-Posts.allow({
+Funds = new Meteor.Collection("funds", {idGeneration : 'MONGO'});
+Funds.allow({
   insert: function(){
     return true;
   },
